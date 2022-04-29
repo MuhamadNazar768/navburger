@@ -1,0 +1,176 @@
+        /* font */
+        
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        /* kasih style nav */
+        
+        nav {
+            background-color: rgb(44, 44, 44);
+            color: white;
+            border-bottom: 1px solid #E7E6E1;
+            display: flex;
+            margin: -8px -8px 0 -8px;
+            overflow: none;
+        }
+        
+        #logo {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        /* Lalu class navlink dan navitemnya*/
+        
+        .nav-link {
+            display: block;
+            padding: 23px 20px;
+            margin: 0;
+            color: #f8feff;
+            text-decoration: none;
+        }
+        
+        .nav-item {
+            position: relative;
+        }
+        /*tambahan, tambahin efek hover dan active, active artinya jika di navitem tadi ada class active(sedang berada dihalaman)
+maka stylenya bedain*/
+        
+        .nav-link:after {
+            content: "";
+            display: none;
+            height: 2px;
+            width: 100%;
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            background-color: #66caf5;
+        }
+        
+        .nav-link.active,
+        .nav-link:hover {
+            color: #66caf5;
+        }
+        
+        .nav-link.active:after,
+        .nav-link:hover:after {
+            display: block;
+        }
+        /* style sidebar */
+        
+        .sidebar {
+            height: 100vh;
+            width: 200px;
+            list-style: none;
+            background-color: #3097af;
+        }
+        
+        .sidebar li a {
+            display: block;
+            padding: 25px;
+            font-size: 14px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-bottom: 1px solid silver;
+            transition: background-color 0.5s;
+        }
+        
+        .sidebar li a:hover {
+            background-color: #66caf5;
+        }
+        /*navbar open*/
+        
+        .sidebar {
+            height: 100vh;
+            width: 200px;
+            list-style: none;
+            background-color: #323435;
+            /* tambahkan kode ini */
+            position: fixed;
+            left: -400px;
+            transition: 0.5s;
+        }
+        /* tambahkan selector .sidebar-open di css */
+        
+        .sidebar-open {
+            left: 0;
+        }
+        /* Hamburger menu */
+        
+        .toggle-sidebar {
+            border: none;
+            background-color: #323435;
+            color: rgb(46, 44, 44);
+            font-weight: bold;
+            padding: 10px;
+            position: absolute;
+            right: 10px;
+            top: 23px;
+            cursor: pointer;
+        }
+        
+        .toggle-sidebar input {
+            position: absolute;
+            width: 40px;
+            height: 28px;
+            left: -5px;
+            top: -3px;
+            opacity: 0;
+            cursor: pointer;
+            z-index: 2;
+        }
+        
+        .toggle-sidebar span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background-color: #fff;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+        /* hamburger menu animasi */
+        
+        .toggle-sidebar span:nth-child(2) {
+            transform-origin: 0 0;
+        }
+        
+        .toggle-sidebar span:nth-child(4) {
+            transform-origin: 0 100%;
+        }
+        
+        .toggle-sidebar input:checked~span:nth-child(2) {
+            background-color: #fff;
+            transform: rotate(45deg) translate(-1px, -1px);
+        }
+        
+        .toggle-sidebar input:checked~span:nth-child(4) {
+            background-color: #fff;
+            transform: rotate(-45deg) translate(-1px, 0px);
+        }
+        
+        .toggle-sidebar input:checked~span:nth-child(3) {
+            opacity: 0;
+            transform: scale(0);
+        }
+        /* tambahin media query, buat ilangin element nav-link nya jika tampilan android */
+        /* android */
+        
+        @media only screen and (max-width: 380px) {
+            #ilang {
+                display: none;
+            }
+        }
+        /* kalo tampilan nya desktop, ilangin sidebar nya desktop */
+        
+        @media only screen and (min-width: 768px) {
+            .toggle-sidebar {
+                display: none;
+            }
+        }
+        
+        @media only screen and (min-width: 381px) {
+            .toggle-sidebar {
+                display: none;
+            }
+        }
